@@ -20,9 +20,9 @@ To host Ghost on [Orchard](https://orchardup.com):
 Configuration
 -------------
 
-This image can be configured with this environment variable:
+This image can be configured with environment variables:
 
- - **GHOST_URL**: The url to use when providing links to the site, E.g. in RSS and email.
+ - `GHOST_URL`: The url to use when providing links to the site, E.g. in RSS and email.
 
 
 Caveats
