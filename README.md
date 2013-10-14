@@ -20,14 +20,14 @@ To host Ghost on [Orchard](https://orchardup.com):
 Configuration
 -------------
 
-This image can be configured with these environment variables:
+This image can be configured with this environment variable:
 
- - *GHOST_URL*: The url to use when providing links to the site, E.g. in RSS and email.
+ - **GHOST_URL**: The url to use when providing links to the site, E.g. in RSS and email.
 
 
 Caveats
 -------
 
-If you upgrade Ghost by replacing the image, you will lose your uploads. This is because there is no way of specifying an upload directory for Ghost yet, but [they're working on it](https://github.com/TryGhost/Ghost/issues/635). The database is saved in a volume called `/data` so it will persist just fine.
+You will lose your uploads if you upgrade Ghost by replacing the image. This is because there is no way of specifying an upload directory for Ghost yet, but [they're working on it](https://github.com/TryGhost/Ghost/issues/635). The database is saved in a volume called `/data` so it will persist just fine.
 
 
