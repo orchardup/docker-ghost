@@ -11,11 +11,12 @@ Your Ghost blog will be running on [http://127.0.0.1:2368](http://127.0.0.1:2368
 Running on Orchard
 ------------------
 
-To host Ghost on [Orchard](https://orchardup.com):
+To host Ghost on [Orchard](https://orchardup.com) (replace `myapp` with a name of your choice):
 
     $ orchard apps create myapp
     $ orchard -a myapp docker run -d -p 80:2368 -v /data -e GHOST_URL=http://my-ghost-blog.com orchardup/ghost
 
+Run `orchard -a myapp docker ps` to get the IP address it is running on.
 
 Configuration
 -------------
