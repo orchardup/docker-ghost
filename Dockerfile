@@ -5,7 +5,7 @@ RUN apt-get install -y python-software-properties
 RUN add-apt-repository ppa:chris-lea/node.js
 RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
 RUN apt-get -qq update
-RUN apt-get install -y sudo curl unzip nodejs=0.10.20-1chl1~precise1
+RUN apt-get install -y sudo curl unzip nodejs
 RUN curl -L https://en.ghost.org/zip/ghost-0.3.2.zip > /tmp/ghost.zip
 RUN useradd ghost
 RUN mkdir -p /opt/ghost
