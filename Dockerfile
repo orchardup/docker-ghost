@@ -1,11 +1,7 @@
-FROM ubuntu:12.04
-MAINTAINER Ben Firshman "ben@orchardup.com"
+FROM dockerfile/nodejs
+MAINTAINER Ben Firshman "ben@orchardup.com", Nicolas LAURENT "innercircle@aegypius.com"
 
-RUN apt-get install -y python-software-properties
-RUN add-apt-repository ppa:chris-lea/node.js
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
-RUN apt-get -qq update && apt-get install -y sudo curl unzip nodejs
-RUN curl -L https://en.ghost.org/zip/ghost-0.3.2.zip > /tmp/ghost.zip
+RUN curl -L https://github.com/TryGhost/Ghost/releases/download/0.4.1/Ghost-0.4.1.zip > /tmp/ghost.zip
 RUN useradd ghost
 RUN mkdir -p /opt/ghost
 WORKDIR /opt/ghost
@@ -16,12 +12,24 @@ RUN npm install --production
 RUN mkdir /data
 VOLUME ["/data"]
 
-ADD run /usr/local/bin/run
 ADD config.js /opt/ghost/config.js
+
+# Theme support
+WORKDIR /opt/ghost/content/themes
+ADD ./themes.txt /tmp/themes.txt
+RUN xargs -L 1 git clone --depth=1 < /tmp/themes.txt
+
+# Fix permissions
 RUN chown -R ghost:ghost /opt/ghost
+
+# Setup startup command
+ADD run /usr/local/bin/run
 
 ENV NODE_ENV production
 ENV GHOST_URL http://my-ghost-blog.com
+
+WORKDIR /opt/ghost
+
 EXPOSE 2368
 CMD ["/usr/local/bin/run"]
 
