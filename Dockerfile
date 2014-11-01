@@ -5,7 +5,7 @@ RUN apt-get update -qq && apt-get install -qy python-software-properties
 RUN add-apt-repository ppa:chris-lea/node.js
 RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
 RUN apt-get -qq update && apt-get install -qy sudo curl unzip nodejs
-RUN curl -L https://en.ghost.org/zip/ghost-0.5.0.zip > /tmp/ghost.zip
+RUN curl -L https://en.ghost.org/zip/ghost-0.5.3.zip > /tmp/ghost.zip
 RUN useradd ghost
 RUN mkdir -p /opt/ghost
 WORKDIR /opt/ghost
@@ -15,6 +15,9 @@ RUN npm install --production
 # Volumes
 RUN mkdir /data
 VOLUME ["/data"]
+
+RUN mkdir /ghostcontent
+VOLUME ["/ghostcontent"]
 
 ADD run /usr/local/bin/run
 ADD config.js /opt/ghost/config.js

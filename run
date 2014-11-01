@@ -1,5 +1,8 @@
 #!/bin/bash
+cp /opt/ghost/content/* /ghostcontent -rf
+rm -rf /opt/ghost/content
 set -e
 chown -R ghost:ghost /data
+chown -R ghost:ghost /ghostcontent
 exec sudo -E -u ghost npm start
 
