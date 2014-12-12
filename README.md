@@ -4,6 +4,7 @@ docker-ghost
 Build from this repository
 --------------------------
     $ git clone https://github.com/atroo/docker-ghost.git
+    $ cd docker-ghost
     $ docker build -t="docker-ghost" .
 
 
