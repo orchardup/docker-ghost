@@ -4,6 +4,6 @@
 set -e
 # chown -R ghost:ghost /data
 # chown -R ghost:ghost /ghostcontent
-chown -R ghost:ghost /
+chown -R ghost:ghost /opt/ghost
 exec sudo -E -u ghost npm start
 
