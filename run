@@ -1,5 +1,14 @@
 #!/bin/bash
-set -e
-chown -R ghost:ghost /data
+# cp /opt/ghost/content/* /ghostcontent -rf
+
+if [ -d /opt/ghost-temp ]; then
+  cp /opt/ghost-temp/* /opt/ghost -rf
+  rm -rf /opt/ghost-temp
+fi
+# rm -rf /opt/ghost/content
+# set -e
+# chown -R ghost:ghost /data
+# chown -R ghost:ghost /ghostcontent
+chown -R ghost:ghost /opt/ghost
 exec sudo -E -u ghost npm start
 
