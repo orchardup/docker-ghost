@@ -8,8 +8,9 @@ RUN apt-get -qq update && apt-get install -qy sudo curl unzip nodejs
 RUN curl -L https://en.ghost.org/zip/ghost-0.5.3.zip > /tmp/ghost.zip
 RUN useradd ghost
 RUN mkdir -p /opt/ghost
+RUN kmdir -p /opt/ghost-temp
 WORKDIR /opt/ghost
-RUN unzip /tmp/ghost.zip
+RUN unzip /tmp/ghost.zip -d /opt/ghost-temp
 RUN npm install --production
 
 # Volumes

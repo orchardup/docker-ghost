@@ -1,7 +1,9 @@
 #!/bin/bash
 # cp /opt/ghost/content/* /ghostcontent -rf
+cp /opt/ghost-temp/* /opt/ghost -rf
+rm -rf /opt/ghost-temp
 # rm -rf /opt/ghost/content
-set -e
+# set -e
 # chown -R ghost:ghost /data
 # chown -R ghost:ghost /ghostcontent
 chown -R ghost:ghost /opt/ghost
