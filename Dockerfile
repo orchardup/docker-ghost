@@ -20,7 +20,7 @@ RUN npm install --production
 # RUN mkdir /ghostcontent
 # VOLUME ["/ghostcontent"]
 
-VOLUME ["/"]
+VOLUME ["/opt/ghost"]
 
 ADD run /usr/local/bin/run
 ADD config.js /opt/ghost/config.js
