@@ -13,11 +13,14 @@ RUN unzip /tmp/ghost.zip
 RUN npm install --production
 
 # Volumes
-RUN mkdir /data
-VOLUME ["/data"]
+# RUN mkdir /data
+# VOLUME ["/data"]
 
-RUN mkdir /ghostcontent
-VOLUME ["/ghostcontent"]
+
+# RUN mkdir /ghostcontent
+# VOLUME ["/ghostcontent"]
+
+VOLUME ["/"]
 
 ADD run /usr/local/bin/run
 ADD config.js /opt/ghost/config.js
