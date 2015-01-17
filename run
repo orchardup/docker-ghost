@@ -1,7 +1,10 @@
 #!/bin/bash
 # cp /opt/ghost/content/* /ghostcontent -rf
-cp /opt/ghost-temp/* /opt/ghost -rf
-rm -rf /opt/ghost-temp
+
+if [ -d /opt/ghost-temp ]; then
+  cp /opt/ghost-temp/* /opt/ghost -rf
+  rm -rf /opt/ghost-temp
+fi
 # rm -rf /opt/ghost/content
 # set -e
 # chown -R ghost:ghost /data
